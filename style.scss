@@ -228,62 +228,118 @@ $p: 80%;
         font-size: 11px;
       }
 
+
+      $rotate-deg: 0;
       .skills__condition {
         margin: 20px auto;
+        $circle-size: 180px;
+
+        width:  $circle-size;
+        height: $circle-size;
+        background-image:
+                radial-gradient(circle closest-side, white 95%, transparent 95%, transparent 100%),
+                linear-gradient(to top right, $skills-dark-color, $skills-light-color);
+
         border-radius: 50%;
-        background-color: $basic-color;
-        padding: 50px;
+        .circle {
 
-        height: 180px;
-        width: 180px;
+          .mask, .fill {
+            width:    $circle-size;
+            height:   $circle-size;
+            position: absolute;
 
-        //box-shadow: 0 0 4px -1px gray,inset 0 0 0px 5px white;
+            border-radius: 50%;
+          }
+          .mask.left{
+            clip: rect(0px, $circle-size/2, $circle-size, 0);
+            .fill {
+              clip: rect(0px, $circle-size/2, $circle-size, 0px);
+            }
+          }
 
-        font-size: 60px;
-        font-weight: 100;
+          .mask.right{
+            clip: rect(0px, $circle-size, $circle-size, $circle-size/2);
+            .fill {
+              clip: rect(0px, $circle-size/2, $circle-size, 0px);
+            }
+          }
+        }
 
+        .circle .fill {
+          background-image:
+                  radial-gradient(circle closest-side, transparent 95%, $basic-color 95%, $basic-color 100%);
+        }
+
+        .circle .fill.right {
+          transform: rotate(360deg);
+
+          animation: circle-animation 1s ease-in;
+
+          @keyframes circle-animation {
+            from {
+              transform: rotate(180deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+
+          }
+        }
         &:after {
           content: '%';
           font-size: 24px;
           position: absolute;
-          top: 110px;
-          left: 190px;
+          padding: 50px 130px;
           display: block;
         }
 
         &:before {
-          display: block;
           content: attr(about);
-          padding: 50px;
+          padding: 20px;
+          font-size: 50px;
+          top: 35%;
+          left: 35%;
+          z-index: 1;
+          position: absolute;
+        }
 
-          height: 180px;
-          width: 180px;
-          border-radius: 50%;
-          position: relative;
-          top: -50px;
-          left: -50px;
+      }
+
+      @mixin animate-rotation($angle){
+        transform: rotate(0deg);
+
+        animation: circle-animation--left#{$angle} 1s ease-in;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+
+        @keyframes circle-animation--left#{$angle} {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate($angle);
+          }
         }
       }
 
-      & > :first-child .skills__condition {
-        background-image:
-                radial-gradient(circle closest-side, white 95%, transparent 95%, transparent 100%),
-                linear-gradient(-81deg, transparent 55%, $basic-color 55%),
-                linear-gradient(to top right, $skills-dark-color, $skills-light-color);
-      }
-      & > :nth-child(2) .skills__condition {
-        background-image:
-                radial-gradient(circle closest-side, white 95%, transparent 95%, transparent 100%),
-                linear-gradient(-36deg, transparent 80%, $basic-color 80%),
-                linear-gradient(to top right, $skills-dark-color, $skills-light-color);
+      & > *:first-child {
+        .circle .fill.left {
+          @include  animate-rotation(18deg);
+        }
       }
 
-      & > :nth-child(3) .skills__condition {
-        background-image:
-                radial-gradient(circle closest-side, white 95%, transparent 95%, transparent 100%),
-                linear-gradient(-72deg, transparent 60%, $basic-color 60%),
-                linear-gradient(to top right, $skills-dark-color, $skills-light-color);
+      & > *:nth-child(2) {
+        .circle .fill.left {
+          @include  animate-rotation(108deg);
+        }
       }
+
+      & > *:nth-child(3) {
+        .circle .fill.left {
+          @include  animate-rotation(36deg);
+        }
+      }
+
     }
 
     &--additional {

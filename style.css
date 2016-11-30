@@ -130,36 +130,77 @@
     font-size: 11px; }
   .container .skills--main .skills__condition {
     margin: 20px auto;
-    border-radius: 50%;
-    background-color: #eff2f5;
-    padding: 50px;
-    height: 180px;
     width: 180px;
-    font-size: 60px;
-    font-weight: 100; }
+    height: 180px;
+    background-image: radial-gradient(circle closest-side, white 95%, transparent 95%, transparent 100%), linear-gradient(to top right, #1ba0e1, #1cd3f6);
+    border-radius: 50%; }
+    .container .skills--main .skills__condition .circle .mask, .container .skills--main .skills__condition .circle .fill {
+      width: 180px;
+      height: 180px;
+      position: absolute;
+      border-radius: 50%; }
+    .container .skills--main .skills__condition .circle .mask.left {
+      clip: rect(0px, 90px, 180px, 0); }
+      .container .skills--main .skills__condition .circle .mask.left .fill {
+        clip: rect(0px, 90px, 180px, 0px); }
+    .container .skills--main .skills__condition .circle .mask.right {
+      clip: rect(0px, 180px, 180px, 90px); }
+      .container .skills--main .skills__condition .circle .mask.right .fill {
+        clip: rect(0px, 90px, 180px, 0px); }
+    .container .skills--main .skills__condition .circle .fill {
+      background-image: radial-gradient(circle closest-side, transparent 95%, #eff2f5 95%, #eff2f5 100%); }
+    .container .skills--main .skills__condition .circle .fill.right {
+      transform: rotate(360deg);
+      animation: circle-animation 1s ease-in; }
+@keyframes circle-animation {
+  from {
+    transform: rotate(180deg); }
+  to {
+    transform: rotate(360deg); } }
     .container .skills--main .skills__condition:after {
       content: '%';
       font-size: 24px;
       position: absolute;
-      top: 110px;
-      left: 190px;
+      padding: 50px 130px;
       display: block; }
     .container .skills--main .skills__condition:before {
-      display: block;
       content: attr(about);
-      padding: 50px;
-      height: 180px;
-      width: 180px;
-      border-radius: 50%;
-      position: relative;
-      top: -50px;
-      left: -50px; }
-  .container .skills--main > :first-child .skills__condition {
-    background-image: radial-gradient(circle closest-side, white 95%, transparent 95%, transparent 100%), linear-gradient(-81deg, transparent 55%, #eff2f5 55%), linear-gradient(to top right, #1ba0e1, #1cd3f6); }
-  .container .skills--main > :nth-child(2) .skills__condition {
-    background-image: radial-gradient(circle closest-side, white 95%, transparent 95%, transparent 100%), linear-gradient(-36deg, transparent 80%, #eff2f5 80%), linear-gradient(to top right, #1ba0e1, #1cd3f6); }
-  .container .skills--main > :nth-child(3) .skills__condition {
-    background-image: radial-gradient(circle closest-side, white 95%, transparent 95%, transparent 100%), linear-gradient(-72deg, transparent 60%, #eff2f5 60%), linear-gradient(to top right, #1ba0e1, #1cd3f6); }
+      padding: 20px;
+      font-size: 50px;
+      top: 35%;
+      left: 35%;
+      z-index: 1;
+      position: absolute; }
+  .container .skills--main > *:first-child .circle .fill.left {
+    transform: rotate(0deg);
+    animation: circle-animation--left18deg 1s ease-in;
+    animation-delay: 1s;
+    animation-fill-mode: forwards; }
+@keyframes circle-animation--left18deg {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(18deg); } }
+  .container .skills--main > *:nth-child(2) .circle .fill.left {
+    transform: rotate(0deg);
+    animation: circle-animation--left108deg 1s ease-in;
+    animation-delay: 1s;
+    animation-fill-mode: forwards; }
+@keyframes circle-animation--left108deg {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(108deg); } }
+  .container .skills--main > *:nth-child(3) .circle .fill.left {
+    transform: rotate(0deg);
+    animation: circle-animation--left36deg 1s ease-in;
+    animation-delay: 1s;
+    animation-fill-mode: forwards; }
+@keyframes circle-animation--left36deg {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(36deg); } }
   .container .skills--additional {
     text-align: center; }
     .container .skills--additional > * {
