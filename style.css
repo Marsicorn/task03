@@ -1,0 +1,314 @@
+.container {
+  color: var(--text-color);
+  font-family: "PT Sans Regular", sans-serif;
+  font-size: 12px;
+  color: #515e72; }
+  .container [class*='row'] {
+    margin: 5%; }
+  .container h2, .container h3, .container .about [class*='about__work--'] .note, .container .last-projects .project__note {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    text-transform: uppercase; }
+  .container h2 {
+    font-family: "PT Sans Narrow", sans-serif;
+    font-size: 20px; }
+  .container .row + :not(.about) > h2:after {
+    display: block;
+    content: "";
+    color: red;
+    border-top: 1px #515e72 solid;
+    width: 40px;
+    margin-top: 5px; }
+  .container h3, .container .about [class*='about__work--'] .note, .container .last-projects .project__note {
+    font-size: 11px; }
+  .container a {
+    color: #00aeff;
+    text-decoration: none; }
+  .container ul {
+    margin: 0;
+    list-style: none;
+    padding: 0; }
+  .container .about__photo {
+    max-width: 148px;
+    /*image size*/ }
+  .container .about__separator {
+    display: inline-block;
+    content: "";
+    border-top: 2px #eff2f5 solid;
+    margin: 40px 20%;
+    height: 0;
+    width: 60%; }
+    .container .about__separator::before {
+      display: block;
+      content: "";
+      width: 40px;
+      height: 40px;
+      margin: -20px auto;
+      border-radius: 20px;
+      background: white url("resources/SpaceInvader.png") no-repeat center; }
+    .container .about__separator:hover::before {
+      animation: separator-animation 1s ease-in; }
+@keyframes separator-animation {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+  .container .about [class*="about__social--"] {
+    height: 15px;
+    vertical-align: middle;
+    margin: 1rem; }
+    .container .about [class*="about__social--"]:before {
+      content: "";
+      float: left;
+      width: 15px;
+      height: 15px;
+      margin-right: 10px;
+      background: url("resources/social-sprite.png");
+      background-size: 75px; }
+    .container .about [class*="about__social--"]:nth-child(1):before {
+      background-position: 0px; }
+    .container .about [class*="about__social--"]:nth-child(2):before {
+      background-position: -15px; }
+    .container .about [class*="about__social--"]:nth-child(3):before {
+      background-position: -30px; }
+    .container .about [class*="about__social--"]:nth-child(4):before {
+      background-position: -45px; }
+    .container .about [class*="about__social--"]:nth-child(5):before {
+      background-position: -60px; }
+  .container .about [class*='about__work--'] {
+    height: 80px;
+    padding-left: 30px; }
+    .container .about [class*='about__work--'] .fn {
+      display: block;
+      font-size: 18px;
+      margin-top: 10px;
+      font-weight: bold; }
+    .container .about [class*='about__work--'] .role {
+      display: block;
+      font-size: 14px; }
+    .container .about [class*='about__work--'] .note {
+      display: block; }
+    .container .about [class*='about__work--']:after {
+      display: block;
+      content: "";
+      width: 16px;
+      height: 16px;
+      border-radius: 8px;
+      position: relative;
+      top: -75px;
+      left: -27px;
+      z-index: -1;
+      box-shadow: 0 0 4px -1px gray,inset 0 0 0px 3px white; }
+  .container .about .about__work--office [class*="fn org"] {
+    color: #3d9ccc; }
+  .container .about .about__work--office:after {
+    background-color: #3d9ccc; }
+  .container .about .about__work--office:not(:first-child):before {
+    content: "";
+    width: 6px;
+    height: 80px;
+    background: #3d9ccc;
+    border-radius: 2px;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    position: relative;
+    top: -71px;
+    left: -22px;
+    float: left;
+    box-shadow: 0 0 4px -1px gray; }
+  .container .about .about__work--freelance [class*="fn"] {
+    color: #96c93c; }
+  .container .about .about__work--freelance:after {
+    background-color: #96c93c; }
+  .container .skills--main [class*="skills__"] {
+    display: block;
+    text-align: center; }
+  .container .skills--main .skills__title {
+    font-size: 14px; }
+  .container .skills--main .skills__note {
+    text-transform: uppercase;
+    font-size: 11px; }
+  .container .skills--main .skills__condition {
+    margin: 20px auto;
+    border-radius: 50%;
+    background-color: #eff2f5;
+    padding: 50px;
+    height: 180px;
+    width: 180px;
+    font-size: 60px;
+    font-weight: 100; }
+    .container .skills--main .skills__condition:after {
+      content: '%';
+      font-size: 24px;
+      position: absolute;
+      top: 110px;
+      left: 190px;
+      display: block; }
+    .container .skills--main .skills__condition:before {
+      display: block;
+      content: attr(about);
+      padding: 50px;
+      height: 180px;
+      width: 180px;
+      border-radius: 50%;
+      position: relative;
+      top: -50px;
+      left: -50px; }
+  .container .skills--main > :first-child .skills__condition {
+    background-image: radial-gradient(circle closest-side, white 95%, transparent 95%, transparent 100%), linear-gradient(-81deg, transparent 55%, #eff2f5 55%), linear-gradient(to top right, #1ba0e1, #1cd3f6); }
+  .container .skills--main > :nth-child(2) .skills__condition {
+    background-image: radial-gradient(circle closest-side, white 95%, transparent 95%, transparent 100%), linear-gradient(-36deg, transparent 80%, #eff2f5 80%), linear-gradient(to top right, #1ba0e1, #1cd3f6); }
+  .container .skills--main > :nth-child(3) .skills__condition {
+    background-image: radial-gradient(circle closest-side, white 95%, transparent 95%, transparent 100%), linear-gradient(-72deg, transparent 60%, #eff2f5 60%), linear-gradient(to top right, #1ba0e1, #1cd3f6); }
+  .container .skills--additional {
+    text-align: center; }
+    .container .skills--additional > * {
+      display: inline-block;
+      margin-right: 20px; }
+      .container .skills--additional > *:before {
+        display: block;
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        background-color: #eff2f5;
+        position: relative;
+        float: left;
+        top: 0.5em;
+        left: -5px; }
+  .container .tools h3, .container .tools .about [class*='about__work--'] .note, .container .about [class*='about__work--'] .tools .note, .container .tools .last-projects .project__note, .container .last-projects .tools .project__note {
+    text-align: right;
+    margin: 1rem; }
+  .container .tools--main > * {
+    margin: 1rem 2rem 0 0;
+    padding: 0;
+    border: none;
+    background-color: #eff2f5;
+    box-shadow: none; }
+    .container .tools--main > *:first-child {
+      margin-top: 2rem; }
+  .container .tools--main .photoshop > .tools__title {
+    padding: 0.4rem 2rem;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    background: #eff2f5 linear-gradient(90deg, #1ba0e1 100%, #eff2f5 100%, #eff2f5) no-repeat;
+    text-transform: uppercase;
+    color: #eff2f5;
+    animation: tools-animation 2s ease-in; }
+@keyframes tools-animation {
+  from {
+    background-color: #eff2f5;
+    background-size: 0% 100%; }
+  to {
+    background-color: #eff2f5;
+    background-size: 100% 100%; } }
+  .container .tools--main .illustrator > .tools__title {
+    padding: 0.4rem 2rem;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    background: #eff2f5 linear-gradient(90deg, #8cbf26 100%, #eff2f5 100%, #eff2f5) no-repeat;
+    text-transform: uppercase;
+    color: #eff2f5;
+    animation: tools-animation 2s ease-in; }
+@keyframes tools-animation {
+  from {
+    background-color: #eff2f5;
+    background-size: 0% 100%; }
+  to {
+    background-color: #eff2f5;
+    background-size: 100% 100%; } }
+  .container .tools--main .indesign > .tools__title {
+    padding: 0.4rem 2rem;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    background: #eff2f5 linear-gradient(90deg, #b664e6 100%, #eff2f5 100%, #eff2f5) no-repeat;
+    text-transform: uppercase;
+    color: #eff2f5;
+    animation: tools-animation 2s ease-in; }
+@keyframes tools-animation {
+  from {
+    background-color: #eff2f5;
+    background-size: 0% 100%; }
+  to {
+    background-color: #eff2f5;
+    background-size: 100% 100%; } }
+  .container .tools--main .sketch > .tools__title {
+    padding: 0.4rem 2rem;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    background: #eff2f5 linear-gradient(90deg, #25b9b8 100%, #eff2f5 100%, #eff2f5) no-repeat;
+    text-transform: uppercase;
+    color: #eff2f5;
+    animation: tools-animation 2s ease-in; }
+@keyframes tools-animation {
+  from {
+    background-color: #eff2f5;
+    background-size: 0% 100%; }
+  to {
+    background-color: #eff2f5;
+    background-size: 100% 100%; } }
+  .container .tools--main .axure > .tools__title {
+    padding: 0.4rem 2rem;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    background: #eff2f5 linear-gradient(90deg, #f09709 100%, #eff2f5 100%, #eff2f5) no-repeat;
+    text-transform: uppercase;
+    color: #eff2f5;
+    animation: tools-animation 2s ease-in; }
+@keyframes tools-animation {
+  from {
+    background-color: #eff2f5;
+    background-size: 0% 100%; }
+  to {
+    background-color: #eff2f5;
+    background-size: 100% 100%; } }
+  .container .tools--activity {
+    background-color: inherit; }
+    .container .tools--activity > * {
+      margin: 1rem;
+      height: 1.5rem; }
+    .container .tools--activity .tools__note {
+      display: inline-block;
+      float: right;
+      text-align: right;
+      text-transform: uppercase;
+      font-size: 11px; }
+  .container .last-projects .project {
+    display: block; }
+    .container .last-projects .project * {
+      display: block;
+      text-align: center;
+      margin: auto; }
+    .container .last-projects .project__title {
+      font-size: 14px; }
+    .container .last-projects .project__image {
+      margin-top: 20px;
+      margin-bottom: 20px; }
+  .container .interests__title {
+    display: block;
+    margin: 10px 0; }
+  .container .footer * {
+    display: block;
+    margin: auto; }
+  .container .footer__quote {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-family: "DroidSerifItalic";
+    font-size: 20px; }
+    .container .footer__quote:after {
+      display: block;
+      margin: auto;
+      content: "";
+      border-top: 2px #eff2f5 solid;
+      width: 100px;
+      margin-top: 5px; }
+  .container .footer__image {
+    margin-top: 20px; }
+
+/*# sourceMappingURL=style.css.map */
