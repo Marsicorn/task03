@@ -33,7 +33,6 @@ $p: 80%;
 }
 
 .container {
-  color: var(--text-color);
 
   @include main-font;
 
@@ -41,19 +40,19 @@ $p: 80%;
     margin: 5%;
   }
 
-  h2, h3 {
+  .section-title,
+  .subsection-title {
     margin-top: 0;
     margin-bottom: 2rem;
     text-transform: uppercase;
   }
 
-  h2 {
+  .section-title {
     font-family: $header-font-fam;
     font-size: 20px;
   }
 
-  .row + :not(.about) > h2:after{
-    //list-style: none;
+  .row + :not(.about) > .section-title:after{
     display: block;
     content: "";
     color: red;
@@ -62,16 +61,23 @@ $p: 80%;
     margin-top: 5px;
   }
 
-  h3 {
+  .subsection-title {
     font-size: 11px;
   }
 
-  a {
+  .link {
     color: $link-color;
     text-decoration: none;
   }
 
-  ul {
+  .about__social,
+  .about__work,
+  .skills--main,
+  .skills--additional,
+  .tools--main,
+  .tools--activity,
+  .last-projects,
+  .interests {
     margin: 0;
     list-style: none;
     padding: 0;
@@ -94,8 +100,8 @@ $p: 80%;
       &::before {
         display: block;
         content:"";
-        width: 40px;//24px;
-        height: 40px;//22px;
+        width: 40px;
+        height: 40px;
         margin: -20px auto;
         border-radius: 20px;
         background: white url($separator-icon) no-repeat center;
@@ -154,7 +160,7 @@ $p: 80%;
 
       .note {
         display: block;
-        @extend h3;
+        @extend .subsection-title;
       }
 
       &:after {
@@ -164,7 +170,6 @@ $p: 80%;
         height:  16px;
         border-radius: 8px;
         position: relative;
-        //float: left;
         top: -75px;
         left: -27px;
         z-index: -1;
@@ -195,7 +200,6 @@ $p: 80%;
         left: -22px;
         float: left;
         box-shadow: 0 0 4px -1px gray;
-        //inset 0 0  0px 3px white,
       }
     }
 
@@ -322,19 +326,19 @@ $p: 80%;
         }
       }
 
-      & > *:first-child {
+      .skill:first-child {
         .circle .fill.left {
           @include  animate-rotation(18deg);
         }
       }
 
-      & > *:nth-child(2) {
+      .skill:nth-child(2) {
         .circle .fill.left {
           @include  animate-rotation(108deg);
         }
       }
 
-      & > *:nth-child(3) {
+      .skill:nth-child(3) {
         .circle .fill.left {
           @include  animate-rotation(36deg);
         }
@@ -345,7 +349,7 @@ $p: 80%;
     &--additional {
       text-align: center;
 
-      > * {
+      .skill {
         display: inline-block;
         margin-right: 20px;
 
@@ -366,13 +370,13 @@ $p: 80%;
   }
 
   .tools {
-    h3 {
+    .subsection-title {
       text-align: right;
       margin: 1rem;
     }
 
     &--main {
-      > * {
+      .tool {
         margin: 1rem 2rem 0 0;
         &:first-child {
           margin-top: 2rem;
@@ -402,12 +406,6 @@ $p: 80%;
           animation: tools-animation 2s ease-in;
         }
 
-        //.#{$tool}:hover {
-        //  > .tools__title {
-        //    animation: tools-animation 2s ease-in;
-        //  }
-        //}
-
         @keyframes tools-animation {
           from {
             background-color: $basic-color;
@@ -423,7 +421,7 @@ $p: 80%;
 
     &--activity {
       background-color: inherit;
-      > * {
+      .tool {
         margin: 1rem;
         height: 1.5rem;
       }
@@ -443,7 +441,9 @@ $p: 80%;
     .project {
       display: block;
 
-      * {
+      &__title,
+      &__note,
+      &__image {
         display: block;
         text-align: center;
         margin: auto;
@@ -454,7 +454,7 @@ $p: 80%;
       }
 
       &__note {
-        @extend h3;
+        @extend .subsection-title;
       }
 
       &__image {
@@ -472,7 +472,8 @@ $p: 80%;
   }
 
   .footer {
-    * {
+    &__quote,
+    &__image {
       display: block;
       margin: auto;
     }

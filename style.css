@@ -1,30 +1,39 @@
 .container {
-  color: var(--text-color);
   font-family: "PT Sans Regular", sans-serif;
   font-size: 12px;
   color: #515e72; }
   .container [class*='row'] {
     margin: 5%; }
-  .container h2, .container h3, .container .about [class*='about__work--'] .note, .container .last-projects .project__note {
+  .container .section-title,
+  .container .subsection-title,
+  .container .about [class*='about__work--'] .note,
+  .container .last-projects .project__note {
     margin-top: 0;
     margin-bottom: 2rem;
     text-transform: uppercase; }
-  .container h2 {
+  .container .section-title {
     font-family: "PT Sans Narrow", sans-serif;
     font-size: 20px; }
-  .container .row + :not(.about) > h2:after {
+  .container .row + :not(.about) > .section-title:after {
     display: block;
     content: "";
     color: red;
     border-top: 1px #515e72 solid;
     width: 40px;
     margin-top: 5px; }
-  .container h3, .container .about [class*='about__work--'] .note, .container .last-projects .project__note {
+  .container .subsection-title, .container .about [class*='about__work--'] .note, .container .last-projects .project__note {
     font-size: 11px; }
-  .container a {
+  .container .link {
     color: #00aeff;
     text-decoration: none; }
-  .container ul {
+  .container .about__social,
+  .container .about__work,
+  .container .skills--main,
+  .container .skills--additional,
+  .container .tools--main,
+  .container .tools--activity,
+  .container .last-projects,
+  .container .interests {
     margin: 0;
     list-style: none;
     padding: 0; }
@@ -171,7 +180,7 @@
       left: 35%;
       z-index: 1;
       position: absolute; }
-  .container .skills--main > *:first-child .circle .fill.left {
+  .container .skills--main .skill:first-child .circle .fill.left {
     transform: rotate(0deg);
     animation: circle-animation--left18deg 1s ease-in;
     animation-delay: 1s;
@@ -181,7 +190,7 @@
     transform: rotate(0deg); }
   to {
     transform: rotate(18deg); } }
-  .container .skills--main > *:nth-child(2) .circle .fill.left {
+  .container .skills--main .skill:nth-child(2) .circle .fill.left {
     transform: rotate(0deg);
     animation: circle-animation--left108deg 1s ease-in;
     animation-delay: 1s;
@@ -191,7 +200,7 @@
     transform: rotate(0deg); }
   to {
     transform: rotate(108deg); } }
-  .container .skills--main > *:nth-child(3) .circle .fill.left {
+  .container .skills--main .skill:nth-child(3) .circle .fill.left {
     transform: rotate(0deg);
     animation: circle-animation--left36deg 1s ease-in;
     animation-delay: 1s;
@@ -203,10 +212,10 @@
     transform: rotate(36deg); } }
   .container .skills--additional {
     text-align: center; }
-    .container .skills--additional > * {
+    .container .skills--additional .skill {
       display: inline-block;
       margin-right: 20px; }
-      .container .skills--additional > *:before {
+      .container .skills--additional .skill:before {
         display: block;
         content: "";
         width: 6px;
@@ -217,16 +226,16 @@
         float: left;
         top: 0.5em;
         left: -5px; }
-  .container .tools h3, .container .tools .about [class*='about__work--'] .note, .container .about [class*='about__work--'] .tools .note, .container .tools .last-projects .project__note, .container .last-projects .tools .project__note {
+  .container .tools .subsection-title, .container .tools .about [class*='about__work--'] .note, .container .about [class*='about__work--'] .tools .note, .container .tools .last-projects .project__note, .container .last-projects .tools .project__note {
     text-align: right;
     margin: 1rem; }
-  .container .tools--main > * {
+  .container .tools--main .tool {
     margin: 1rem 2rem 0 0;
     padding: 0;
     border: none;
     background-color: #eff2f5;
     box-shadow: none; }
-    .container .tools--main > *:first-child {
+    .container .tools--main .tool:first-child {
       margin-top: 2rem; }
   .container .tools--main .photoshop > .tools__title {
     padding: 0.4rem 2rem;
@@ -310,7 +319,7 @@
     background-size: 100% 100%; } }
   .container .tools--activity {
     background-color: inherit; }
-    .container .tools--activity > * {
+    .container .tools--activity .tool {
       margin: 1rem;
       height: 1.5rem; }
     .container .tools--activity .tools__note {
@@ -321,7 +330,7 @@
       font-size: 11px; }
   .container .last-projects .project {
     display: block; }
-    .container .last-projects .project * {
+    .container .last-projects .project__title, .container .last-projects .project__note, .container .last-projects .project__image {
       display: block;
       text-align: center;
       margin: auto; }
@@ -333,7 +342,7 @@
   .container .interests__title {
     display: block;
     margin: 10px 0; }
-  .container .footer * {
+  .container .footer__quote, .container .footer__image {
     display: block;
     margin: auto; }
   .container .footer__quote {
